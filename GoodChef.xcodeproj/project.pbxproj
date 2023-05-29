@@ -18,6 +18,11 @@
 		03CAA34B2A24AC4100F691F1 /* GCHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA34A2A24AC4100F691F1 /* GCHomeViewModel.swift */; };
 		03CAA34E2A24B03B00F691F1 /* GCMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA34D2A24B03B00F691F1 /* GCMainCoordinator.swift */; };
 		03CAA3502A24B05100F691F1 /* GCViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA34F2A24B05100F691F1 /* GCViewControllerFactory.swift */; };
+		03CAA3532A24C88100F691F1 /* GCNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3522A24C88100F691F1 /* GCNetworkManager.swift */; };
+		03CAA3552A24C98500F691F1 /* GCRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3542A24C98500F691F1 /* GCRecipe.swift */; };
+		03CAA3572A24D1CE00F691F1 /* GCNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3562A24D1CD00F691F1 /* GCNetworkError.swift */; };
+		03CAA3592A24D46800F691F1 /* GCNetworkUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3582A24D46800F691F1 /* GCNetworkUrl.swift */; };
+		03CAA35C2A24E12B00F691F1 /* GCDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA35B2A24E12B00F691F1 /* GCDateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		03CAA34A2A24AC4100F691F1 /* GCHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCHomeViewModel.swift; sourceTree = "<group>"; };
 		03CAA34D2A24B03B00F691F1 /* GCMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCMainCoordinator.swift; sourceTree = "<group>"; };
 		03CAA34F2A24B05100F691F1 /* GCViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCViewControllerFactory.swift; sourceTree = "<group>"; };
+		03CAA3522A24C88100F691F1 /* GCNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCNetworkManager.swift; sourceTree = "<group>"; };
+		03CAA3542A24C98500F691F1 /* GCRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipe.swift; sourceTree = "<group>"; };
+		03CAA3562A24D1CD00F691F1 /* GCNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCNetworkError.swift; sourceTree = "<group>"; };
+		03CAA3582A24D46800F691F1 /* GCNetworkUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCNetworkUrl.swift; sourceTree = "<group>"; };
+		03CAA35B2A24E12B00F691F1 /* GCDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +113,8 @@
 		03CAA3132A24A41100F691F1 /* GoodChef */ = {
 			isa = PBXGroup;
 			children = (
+				03CAA35A2A24E10B00F691F1 /* Extensions */,
+				03CAA3512A24C86C00F691F1 /* Network */,
 				03CAA3442A24AA6500F691F1 /* Model */,
 				03CAA3452A24AA6B00F691F1 /* Coordinator */,
 				03CAA3462A24AA7500F691F1 /* View */,
@@ -135,6 +147,7 @@
 		03CAA3442A24AA6500F691F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				03CAA3542A24C98500F691F1 /* GCRecipe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +184,24 @@
 				03CAA34F2A24B05100F691F1 /* GCViewControllerFactory.swift */,
 			);
 			path = Factory;
+			sourceTree = "<group>";
+		};
+		03CAA3512A24C86C00F691F1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				03CAA3522A24C88100F691F1 /* GCNetworkManager.swift */,
+				03CAA3562A24D1CD00F691F1 /* GCNetworkError.swift */,
+				03CAA3582A24D46800F691F1 /* GCNetworkUrl.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		03CAA35A2A24E10B00F691F1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				03CAA35B2A24E12B00F691F1 /* GCDateFormatter.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,8 +335,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				03CAA3152A24A41100F691F1 /* AppDelegate.swift in Sources */,
+				03CAA35C2A24E12B00F691F1 /* GCDateFormatter.swift in Sources */,
+				03CAA3572A24D1CE00F691F1 /* GCNetworkError.swift in Sources */,
 				03CAA3492A24AC2C00F691F1 /* GCHomeViewController.swift in Sources */,
 				03CAA3172A24A41100F691F1 /* SceneDelegate.swift in Sources */,
+				03CAA3592A24D46800F691F1 /* GCNetworkUrl.swift in Sources */,
+				03CAA3552A24C98500F691F1 /* GCRecipe.swift in Sources */,
+				03CAA3532A24C88100F691F1 /* GCNetworkManager.swift in Sources */,
 				03CAA3502A24B05100F691F1 /* GCViewControllerFactory.swift in Sources */,
 				03CAA34B2A24AC4100F691F1 /* GCHomeViewModel.swift in Sources */,
 				03CAA34E2A24B03B00F691F1 /* GCMainCoordinator.swift in Sources */,
