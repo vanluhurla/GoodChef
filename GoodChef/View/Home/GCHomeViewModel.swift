@@ -7,6 +7,18 @@
 
 import Foundation
 
+protocol GCHomeViewModelDelegate: AnyObject {
+    func didRecieveRecipes()
+    func didRecieveErrorWithMessage(_ message: String)
+}
+
 class GCHomeViewModel: NSObject {
     
+    var networkManager = GCNetworkManager()
+    
+    var delegate: GCHomeViewModelDelegate?
+    
+    func loadData() {
+        
+    }
 }

@@ -14,6 +14,7 @@ class GCHomeViewController: UIViewController {
     init(viewModel: GCHomeViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.viewModel.delegate = self
         
     }
     
@@ -23,7 +24,21 @@ class GCHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .cyan
+        viewModel.loadData()
         
     }
+}
+
+//MARK: VIEW MODEL DELEGATE
+extension GCHomeViewController: GCHomeViewModelDelegate {
+    func didRecieveRecipes() {
+        <#code#>
+    }
+    
+    func didRecieveErrorWithMessage(_ message: String) {
+        <#code#>
+    }
+    
+    
 }
