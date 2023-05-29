@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		03CAA3152A24A41100F691F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3142A24A41100F691F1 /* AppDelegate.swift */; };
 		03CAA3172A24A41100F691F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3162A24A41100F691F1 /* SceneDelegate.swift */; };
-		03CAA3192A24A41100F691F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3182A24A41100F691F1 /* ViewController.swift */; };
 		03CAA31E2A24A41200F691F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CAA31D2A24A41200F691F1 /* Assets.xcassets */; };
 		03CAA3212A24A41200F691F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03CAA31F2A24A41200F691F1 /* LaunchScreen.storyboard */; };
 		03CAA32C2A24A41200F691F1 /* GoodChefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA32B2A24A41200F691F1 /* GoodChefTests.swift */; };
 		03CAA3362A24A41200F691F1 /* GoodChefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3352A24A41200F691F1 /* GoodChefUITests.swift */; };
 		03CAA3382A24A41200F691F1 /* GoodChefUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3372A24A41200F691F1 /* GoodChefUITestsLaunchTests.swift */; };
+		03CAA3492A24AC2C00F691F1 /* GCHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3482A24AC2C00F691F1 /* GCHomeViewController.swift */; };
+		03CAA34B2A24AC4100F691F1 /* GCHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA34A2A24AC4100F691F1 /* GCHomeViewModel.swift */; };
+		03CAA34E2A24B03B00F691F1 /* GCMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA34D2A24B03B00F691F1 /* GCMainCoordinator.swift */; };
+		03CAA3502A24B05100F691F1 /* GCViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA34F2A24B05100F691F1 /* GCViewControllerFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,6 @@
 		03CAA3112A24A41100F691F1 /* GoodChef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodChef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CAA3142A24A41100F691F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03CAA3162A24A41100F691F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		03CAA3182A24A41100F691F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		03CAA31D2A24A41200F691F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03CAA3202A24A41200F691F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03CAA3222A24A41200F691F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +49,10 @@
 		03CAA3312A24A41200F691F1 /* GoodChefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodChefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CAA3352A24A41200F691F1 /* GoodChefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodChefUITests.swift; sourceTree = "<group>"; };
 		03CAA3372A24A41200F691F1 /* GoodChefUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodChefUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		03CAA3482A24AC2C00F691F1 /* GCHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCHomeViewController.swift; sourceTree = "<group>"; };
+		03CAA34A2A24AC4100F691F1 /* GCHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCHomeViewModel.swift; sourceTree = "<group>"; };
+		03CAA34D2A24B03B00F691F1 /* GCMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCMainCoordinator.swift; sourceTree = "<group>"; };
+		03CAA34F2A24B05100F691F1 /* GCViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCViewControllerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +103,11 @@
 		03CAA3132A24A41100F691F1 /* GoodChef */ = {
 			isa = PBXGroup;
 			children = (
+				03CAA3442A24AA6500F691F1 /* Model */,
+				03CAA3452A24AA6B00F691F1 /* Coordinator */,
+				03CAA3462A24AA7500F691F1 /* View */,
 				03CAA3142A24A41100F691F1 /* AppDelegate.swift */,
 				03CAA3162A24A41100F691F1 /* SceneDelegate.swift */,
-				03CAA3182A24A41100F691F1 /* ViewController.swift */,
 				03CAA31D2A24A41200F691F1 /* Assets.xcassets */,
 				03CAA31F2A24A41200F691F1 /* LaunchScreen.storyboard */,
 				03CAA3222A24A41200F691F1 /* Info.plist */,
@@ -122,6 +130,47 @@
 				03CAA3372A24A41200F691F1 /* GoodChefUITestsLaunchTests.swift */,
 			);
 			path = GoodChefUITests;
+			sourceTree = "<group>";
+		};
+		03CAA3442A24AA6500F691F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03CAA3452A24AA6B00F691F1 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				03CAA34D2A24B03B00F691F1 /* GCMainCoordinator.swift */,
+				03CAA34C2A24B00400F691F1 /* Factory */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		03CAA3462A24AA7500F691F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				03CAA3472A24AC0E00F691F1 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		03CAA3472A24AC0E00F691F1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				03CAA3482A24AC2C00F691F1 /* GCHomeViewController.swift */,
+				03CAA34A2A24AC4100F691F1 /* GCHomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		03CAA34C2A24B00400F691F1 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				03CAA34F2A24B05100F691F1 /* GCViewControllerFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +303,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03CAA3192A24A41100F691F1 /* ViewController.swift in Sources */,
 				03CAA3152A24A41100F691F1 /* AppDelegate.swift in Sources */,
+				03CAA3492A24AC2C00F691F1 /* GCHomeViewController.swift in Sources */,
 				03CAA3172A24A41100F691F1 /* SceneDelegate.swift in Sources */,
+				03CAA3502A24B05100F691F1 /* GCViewControllerFactory.swift in Sources */,
+				03CAA34B2A24AC4100F691F1 /* GCHomeViewModel.swift in Sources */,
+				03CAA34E2A24B03B00F691F1 /* GCMainCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
