@@ -31,14 +31,13 @@ class GCHomeViewController: UIViewController {
 }
 
 //MARK: VIEW MODEL DELEGATE
+
 extension GCHomeViewController: GCHomeViewModelDelegate {
     func didRecieveRecipes() {
-        <#code#>
+        print("DID RECEIVE RECIPES: \(viewModel.recipes.count)")
     }
-    
+
     func didRecieveErrorWithMessage(_ message: String) {
-        <#code#>
+        print("DID RECEIVE ERROR: \(message)")
     }
-    
-    
 }
