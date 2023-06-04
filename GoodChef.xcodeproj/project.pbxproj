@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0328F10F2A2CD7A100615905 /* GCColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328F10E2A2CD7A100615905 /* GCColours.swift */; };
 		03CAA3152A24A41100F691F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3142A24A41100F691F1 /* AppDelegate.swift */; };
 		03CAA3172A24A41100F691F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3162A24A41100F691F1 /* SceneDelegate.swift */; };
 		03CAA31E2A24A41200F691F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CAA31D2A24A41200F691F1 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0328F10E2A2CD7A100615905 /* GCColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCColours.swift; sourceTree = "<group>"; };
 		03CAA3112A24A41100F691F1 /* GoodChef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodChef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CAA3142A24A41100F691F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03CAA3162A24A41100F691F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0328F10D2A2CD78000615905 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				0328F10E2A2CD7A100615905 /* GCColours.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
 		03CAA3082A24A41000F691F1 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 		03CAA3132A24A41100F691F1 /* GoodChef */ = {
 			isa = PBXGroup;
 			children = (
+				0328F10D2A2CD78000615905 /* Design */,
 				03CAA35A2A24E10B00F691F1 /* Extensions */,
 				03CAA3512A24C86C00F691F1 /* Network */,
 				03CAA3442A24AA6500F691F1 /* Model */,
@@ -345,6 +356,7 @@
 				03CAA3502A24B05100F691F1 /* GCViewControllerFactory.swift in Sources */,
 				03CAA34B2A24AC4100F691F1 /* GCHomeViewModel.swift in Sources */,
 				03CAA34E2A24B03B00F691F1 /* GCMainCoordinator.swift in Sources */,
+				0328F10F2A2CD7A100615905 /* GCColours.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
