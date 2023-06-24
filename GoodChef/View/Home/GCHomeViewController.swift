@@ -7,14 +7,28 @@
 
 import UIKit
 
-class GCHomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
+class GCHomeViewController: UIViewController {
+    
     private var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(GCCategoryListCell.self, forCellWithReuseIdentifier: GCCategoryListCell.identifier)
         collectionView.register(GCRecipeLargeCardCell.self, forCellWithReuseIdentifier: GCRecipeLargeCardCell.identifier)
         return collectionView
-        
+    }()
+    
+    private lazy var dataSource: HomeDataSource = {
+        HomeDataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, itemIdentifier in
+            guard let self else {
+                return UICollectionViewCell()
+            }
+            switch itemIdentifier {
+            case .featured(let item):
+                return largeCardCell(collectionView: collectionView, indexPath: indexPath, item: itemIdentifier)
+            case .categories(let item):
+                return categoryCell(collectionView: collectionView, indexPath: indexPath, item: itemIdentifier)
+            }
+        }
     }()
     
     let viewModel: GCHomeViewModel
@@ -35,8 +49,7 @@ class GCHomeViewController: UIViewController, UICollectionViewDelegateFlowLayout
         view.backgroundColor = .primaryText
         viewModel.loadData()
         setupUi()
-        temp_dataSource()
-        
+     
     }
 }
 
@@ -44,7 +57,7 @@ class GCHomeViewController: UIViewController, UICollectionViewDelegateFlowLayout
 
 extension GCHomeViewController: GCHomeViewModelDelegate {
     func didRecieveRecipes() {
-        print("DID RECEIVE RECIPES: \(viewModel.recipes.count)")
+        applySnapshot()
     }
 
     func didRecieveErrorWithMessage(_ message: String) {
@@ -70,45 +83,31 @@ private extension GCHomeViewController {
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
+    
+    func applySnapshot() {
+        var snapshot = HomeSnapshot()
+        snapshot.appendSections([GCHomeSection.featured])
+        snapshot.appendItems(viewModel.featuredItems())
+        snapshot.appendSections([GCHomeSection.categories])
+        snapshot.appendItems(viewModel.categoryItems())
+        dataSource.apply(snapshot)
+    }
 }
 
-extension GCHomeViewController {
-    func temp_dataSource() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-    }
-}
-
-// Ignore this:
-
-extension GCHomeViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if indexPath.item == 0 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GCRecipeLargeCardCell.identifier, for: indexPath) as? GCRecipeLargeCardCell else {
-                return UICollectionViewCell()
-            }
-            cell.setupCellContent()
-            return cell
-        } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GCCategoryListCell.identifier, for: indexPath) as? GCCategoryListCell else {
-                return UICollectionViewCell()
-            }
-            cell.setupCellContent()
-            return cell
+private extension GCHomeViewController {
+    func largeCardCell(collectionView: UICollectionView, indexPath: IndexPath, item: GCHomeItem) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GCRecipeLargeCardCell.identifier, for: indexPath) as? GCRecipeLargeCardCell else {
+            return UICollectionViewCell()
         }
+        cell.setupCellContent()
+        return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let width = collectionView.bounds.width
-
-            // Calculate the desired width and height for your cells
-            let cellWidth = width // Set it to the full width of the collection view
-
-            return CGSize(width: cellWidth, height: 500) // Adjust the height as per your requirements
+    func categoryCell(collectionView: UICollectionView, indexPath: IndexPath, item: GCHomeItem) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GCCategoryListCell.identifier, for: indexPath) as? GCCategoryListCell else {
+            return UICollectionViewCell()
         }
+        cell.setupCellContent()
+        return cell
+    }
 }

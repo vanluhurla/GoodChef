@@ -18,7 +18,12 @@ struct GCRecipeList: Codable {
 struct GCRecipe: Codable {
     let image: String
     let title: String
+    let category: String
     let date: Date
     let ingredients: [String]
     let instructions: [String]
+    
+    var readableDate: String {
+        DateFormatter.readableDateFormat.string(from: date)
+    }
 }
