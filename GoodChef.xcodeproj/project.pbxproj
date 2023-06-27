@@ -27,6 +27,8 @@
 		03CAA3592A24D46800F691F1 /* GCNetworkUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3582A24D46800F691F1 /* GCNetworkUrl.swift */; };
 		03CAA35C2A24E12B00F691F1 /* GCDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA35B2A24E12B00F691F1 /* GCDateFormatter.swift */; };
 		03F188362A47254C007D37C0 /* GCHomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F188352A47254C007D37C0 /* GCHomeDataSource.swift */; };
+		03F1883E2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1883D2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift */; };
+		03F188402A4B77B4007D37C0 /* GCUIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1883F2A4B77B4007D37C0 /* GCUIImageView+Download.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		03CAA3582A24D46800F691F1 /* GCNetworkUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCNetworkUrl.swift; sourceTree = "<group>"; };
 		03CAA35B2A24E12B00F691F1 /* GCDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDateFormatter.swift; sourceTree = "<group>"; };
 		03F188352A47254C007D37C0 /* GCHomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCHomeDataSource.swift; sourceTree = "<group>"; };
+		03F1883D2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCHomeCollectionViewLayout.swift; sourceTree = "<group>"; };
+		03F1883F2A4B77B4007D37C0 /* GCUIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GCUIImageView+Download.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 			children = (
 				03F188342A4723D6007D37C0 /* Cells */,
 				03F188352A47254C007D37C0 /* GCHomeDataSource.swift */,
+				03F1883D2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift */,
 				03CAA34A2A24AC4100F691F1 /* GCHomeViewModel.swift */,
 				03CAA3482A24AC2C00F691F1 /* GCHomeViewController.swift */,
 			);
@@ -219,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				03CAA35B2A24E12B00F691F1 /* GCDateFormatter.swift */,
+				03F1883F2A4B77B4007D37C0 /* GCUIImageView+Download.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,9 +374,11 @@
 				03226B1A2A3F3F9C00D61A77 /* GCCategoryListCell.swift in Sources */,
 				03CAA3492A24AC2C00F691F1 /* GCHomeViewController.swift in Sources */,
 				03CAA3172A24A41100F691F1 /* SceneDelegate.swift in Sources */,
+				03F1883E2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift in Sources */,
 				03CAA3592A24D46800F691F1 /* GCNetworkUrl.swift in Sources */,
 				03F188362A47254C007D37C0 /* GCHomeDataSource.swift in Sources */,
 				03CAA3552A24C98500F691F1 /* GCRecipe.swift in Sources */,
+				03F188402A4B77B4007D37C0 /* GCUIImageView+Download.swift in Sources */,
 				03226B162A3F3F7100D61A77 /* GCRecipeLargeCardCell.swift in Sources */,
 				03CAA3532A24C88100F691F1 /* GCNetworkManager.swift in Sources */,
 				03CAA3502A24B05100F691F1 /* GCViewControllerFactory.swift in Sources */,

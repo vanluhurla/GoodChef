@@ -65,17 +65,20 @@ class GCRecipeLargeCardCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupCellContent() {
+    func setupCellContent(item: FeaturedItem) {
         setupUi()
-        setupValues()
+        setupValues(item: item)
     }
 }
 
 private extension GCRecipeLargeCardCell {
-    func setupValues() {
-        recipeTitleLabel.text = "Recipe Title"
-        categoryTitleLabel.text = "Category Title"
-        cardImageView.image = UIImage(named: "splash")
+    func setupValues(item: FeaturedItem) {
+        recipeTitleLabel.text = item.title
+        categoryTitleLabel.text = item.subtitle
+        cardImageView.image = UIImage(named: "placeholder")
+        // start loading
+        cardImageView.downloadImage(from: item.imageURL)
+        // finish loading
     }
     
     func setupUi() {
