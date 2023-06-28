@@ -30,6 +30,14 @@ class GCRecipeLargeCardCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    private var loadingImageIndicator: UIActivityIndicatorView = {
+        let loadingIndicator = UIActivityIndicatorView(style: .large)
+        loadingIndicator.color = .gray
+        loadingIndicator.startAnimating()
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return loadingIndicator
+    }()
     private var footerView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -77,7 +85,9 @@ private extension GCRecipeLargeCardCell {
         categoryTitleLabel.text = item.subtitle
         cardImageView.image = UIImage(named: "placeholder")
         // start loading
-        cardImageView.downloadImage(from: item.imageURL)
+        cardImageView.downloadImage(from: item.imageURL) { [weak self] in
+            self?.loadingImageIndicator.stopAnimating()
+        }
         // finish loading
     }
     
@@ -89,6 +99,7 @@ private extension GCRecipeLargeCardCell {
     func setupViews() {
         contentView.addSubview(cardView)
         cardView.addSubview(cardImageView)
+        cardView.addSubview(loadingImageIndicator)
         cardView.addSubview(footerView)
         footerView.addSubview(visualEffectView)
         footerView.addSubview(textStackView)
@@ -109,6 +120,10 @@ private extension GCRecipeLargeCardCell {
             cardImageView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
             cardImageView.topAnchor.constraint(equalTo: cardView.topAnchor),
             cardImageView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor),
+            
+            loadingImageIndicator.centerXAnchor.constraint(equalTo: cardView.centerXAnchor),
+            loadingImageIndicator.centerYAnchor.constraint(equalTo: cardView.centerYAnchor),
+    
             
             footerView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
             footerView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
