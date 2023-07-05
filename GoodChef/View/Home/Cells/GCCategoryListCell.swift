@@ -17,22 +17,21 @@ class GCCategoryListCell: UICollectionViewCell {
     private var cellView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .purple
+        view.backgroundColor = .backgroundPrimary
         return view
     }()
     private var cellStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 2.0
-        stackView.backgroundColor = .white
+        stackView.backgroundColor = .clear
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     private var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .center
-        imageView.backgroundColor = .white
-        //imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .clear
         return imageView
     }()
     
@@ -45,14 +44,14 @@ class GCCategoryListCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupCellContent() {
-        setupValues()
+    func setupCellContent(item: CategoryItem) {
+        setupValues(item: item)
     }
 }
 
 private extension GCCategoryListCell {
-    func setupValues() {
-        categoryTitle.text = "Breakfast"
+    func setupValues(item: CategoryItem) {
+        categoryTitle.text = item.title
     }
     
     func setupUi() {
@@ -82,7 +81,8 @@ private extension GCCategoryListCell {
             // Cell Stack View
             cellStackView.leadingAnchor.constraint(equalTo: cellView.leadingAnchor),
             cellStackView.trailingAnchor.constraint(equalTo: cellView.trailingAnchor),
-            cellStackView.heightAnchor.constraint(equalToConstant: 50),
+            cellStackView.topAnchor.constraint(equalTo: cellView.topAnchor),
+            cellStackView.bottomAnchor.constraint(equalTo: cellView.bottomAnchor),
             // Icon Image View
             iconImageView.widthAnchor.constraint(equalToConstant: 50),
             iconImageView.heightAnchor.constraint(equalToConstant: 50)

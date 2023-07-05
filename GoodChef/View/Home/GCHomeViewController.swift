@@ -90,8 +90,8 @@ private extension GCHomeViewController {
         var snapshot = HomeSnapshot()
         snapshot.appendSections([GCHomeSection.featured])
         snapshot.appendItems(viewModel.featuredItems())
-//        snapshot.appendSections([GCHomeSection.categories])
-//        snapshot.appendItems(viewModel.categoryItems())
+        snapshot.appendSections([GCHomeSection.categories])
+        snapshot.appendItems(viewModel.categoryItems())
         dataSource.apply(snapshot)
     }
 }
@@ -109,7 +109,7 @@ private extension GCHomeViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GCCategoryListCell.identifier, for: indexPath) as? GCCategoryListCell else {
             return UICollectionViewCell()
         }
-        cell.setupCellContent()
+        cell.setupCellContent(item: item)
         return cell
     }
 }
