@@ -29,6 +29,7 @@
 		03F188362A47254C007D37C0 /* GCHomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F188352A47254C007D37C0 /* GCHomeDataSource.swift */; };
 		03F1883E2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1883D2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift */; };
 		03F188402A4B77B4007D37C0 /* GCUIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1883F2A4B77B4007D37C0 /* GCUIImageView+Download.swift */; };
+		03F188442A5763F0007D37C0 /* GCHomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F188432A5763F0007D37C0 /* GCHomeHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		03F188352A47254C007D37C0 /* GCHomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCHomeDataSource.swift; sourceTree = "<group>"; };
 		03F1883D2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCHomeCollectionViewLayout.swift; sourceTree = "<group>"; };
 		03F1883F2A4B77B4007D37C0 /* GCUIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GCUIImageView+Download.swift"; sourceTree = "<group>"; };
+		03F188432A5763F0007D37C0 /* GCHomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCHomeHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 			children = (
 				03226B152A3F3F7100D61A77 /* GCRecipeLargeCardCell.swift */,
 				03226B192A3F3F9C00D61A77 /* GCCategoryListCell.swift */,
+				03F188432A5763F0007D37C0 /* GCHomeHeader.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				03CAA34B2A24AC4100F691F1 /* GCHomeViewModel.swift in Sources */,
 				03CAA34E2A24B03B00F691F1 /* GCMainCoordinator.swift in Sources */,
 				0328F10F2A2CD7A100615905 /* GCColours.swift in Sources */,
+				03F188442A5763F0007D37C0 /* GCHomeHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

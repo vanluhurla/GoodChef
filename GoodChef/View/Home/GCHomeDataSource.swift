@@ -13,6 +13,15 @@ typealias HomeSnapshot = NSDiffableDataSourceSnapshot<GCHomeSection, GCHomeItem>
 enum GCHomeSection: Int {
     case featured
     case categories
+    
+    var sectionTitle: String {
+        switch self {
+        case .featured:
+            return "Featured"
+        case .categories:
+            return "Categories"
+        }
+    }
 }
 
 enum GCHomeItem: Hashable {

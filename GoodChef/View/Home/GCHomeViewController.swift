@@ -16,11 +16,13 @@ class GCHomeViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(GCCategoryListCell.self, forCellWithReuseIdentifier: GCCategoryListCell.identifier)
         collectionView.register(GCRecipeLargeCardCell.self, forCellWithReuseIdentifier: GCRecipeLargeCardCell.identifier)
+        collectionView.register(GCHomeHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GCHomeHeader.identifier)
         return collectionView
     }()
     
     private lazy var dataSource: HomeDataSource = {
-        HomeDataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, itemIdentifier in
+        let dataSource = HomeDataSource(collectionView: collectionView) { [weak self] collectionView, indexPath,
+            itemIdentifier in
             guard let self else {
                 return UICollectionViewCell()
             }
@@ -31,6 +33,13 @@ class GCHomeViewController: UIViewController {
                 return categoryCell(collectionView: collectionView, indexPath: indexPath, item: item)
             }
         }
+        dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+            guard let self else {
+                return nil
+            }
+            return header(collectionView: collectionView, kind: kind, indexPath: indexPath)
+        }
+        return dataSource
     }()
     
     let viewModel: GCHomeViewModel
@@ -111,5 +120,14 @@ private extension GCHomeViewController {
         }
         cell.setupCellContent(item: item)
         return cell
+    }
+    
+    func header(collectionView: UICollectionView, kind: String, indexPath: IndexPath) -> UICollectionReusableView? {
+        guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: GCHomeHeader.identifier, for: indexPath) as? GCHomeHeader,
+              let section = GCHomeSection(rawValue: indexPath.section) else {
+            return nil
+        }
+        sectionHeader.setupHeader(title: section.sectionTitle)
+        return sectionHeader
     }
 }
