@@ -22,6 +22,8 @@ struct GCRecipe: Codable {
     let date: Date
     let ingredients: [String]
     let instructions: [String]
+    let preparationTime: String
+    let featured: Bool
     
     var readableDate: String {
         DateFormatter.readableDateFormat.string(from: date)

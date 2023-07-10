@@ -33,22 +33,27 @@ class GCHomeViewModel: NSObject {
     }
     
     func featuredItems() -> [GCHomeItem] {
-        let items = recipes.map { recipe in
-            let item = FeaturedItem(title: recipe.title, subtitle: recipe.readableDate, imageURL: recipe.image)
+        let items = recipes.filter({$0.featured })
+        return buildItems(recipes: items)
+    }
+    
+    func allItems() -> [GCHomeItem] {
+        return buildItems(recipes: recipes)
+    }
+    
+    func buildItems(recipes: [GCRecipe]) -> [GCHomeItem] {
+        let orderedRecipes = recipes.sorted(by: { $0.date.compare($1.date) == .orderedDescending })
+        let items = orderedRecipes.map { recipe in
+            let item = RecipeItem(title: recipe.title, subtitle: recipe.preparationTime, imageURL: recipe.image)
             return GCHomeItem.featured(item)
         }
         return items
     }
     
     func categoryItems() -> [GCHomeItem] {
-        let uniqueCategories = recipes.reduce(into: Set<String>()) { result, recipe in
-            result.insert(recipe.category)
-        }
-        let categories = Array(uniqueCategories)
-        let items = categories.map { category in
-            let item = CategoryItem(title: category)
+        GCRecipeCategory.allCases.map { category in
+            let item = CategoryItem(category: category)
             return GCHomeItem.categories(item)
         }
-        return items
     }
 }

@@ -106,7 +106,7 @@ private extension GCHomeViewController {
 }
 
 private extension GCHomeViewController {
-    func largeCardCell(collectionView: UICollectionView, indexPath: IndexPath, item: FeaturedItem) -> UICollectionViewCell {
+    func largeCardCell(collectionView: UICollectionView, indexPath: IndexPath, item: RecipeItem) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GCRecipeLargeCardCell.identifier, for: indexPath) as? GCRecipeLargeCardCell else {
             return UICollectionViewCell()
         }
