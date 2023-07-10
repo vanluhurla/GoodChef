@@ -25,17 +25,17 @@ enum GCHomeSection: Int {
 }
 
 enum GCHomeItem: Hashable {
-    case featured(FeaturedItem)
+    case featured(RecipeItem)
     case categories(CategoryItem)
 }
 
-struct FeaturedItem: Hashable {
+struct RecipeItem: Hashable {
     let title: String
     let subtitle: String
     let imageURL: String
 }
 
 struct CategoryItem: Hashable {
-    let title: String
+    let category: GCRecipeCategory
 }
 

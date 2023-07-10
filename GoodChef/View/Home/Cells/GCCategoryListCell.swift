@@ -11,7 +11,6 @@ class GCCategoryListCell: UICollectionViewCell {
     
     static var identifier = "ReusableGCCategoryListCell"
     
-    private let imageIcon = UIImage(named: "coffee-icon")?.withTintColor(.orange)
     private let imageSize = CGSize(width: 20, height: 20)
     private let categoryTitle = UILabel()
     private var cellView: UIView = {
@@ -51,15 +50,17 @@ class GCCategoryListCell: UICollectionViewCell {
 
 private extension GCCategoryListCell {
     func setupValues(item: CategoryItem) {
-        categoryTitle.text = item.title
+        categoryTitle.text = item.category.title
+        if let image = item.category.image?.withTintColor(.orange),
+        let scaledImage = image.resize(to: imageSize) {
+            iconImageView.image = scaledImage
+        }
     }
     
     func setupUi() {
         setupViews()
         layoutViews()
-        if let scaledImage = imageIcon?.resize(to: imageSize) {
-            iconImageView.image = scaledImage
-        }
+
     }
     
     func setupViews() {
