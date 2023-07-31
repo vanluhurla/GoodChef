@@ -13,6 +13,8 @@ struct GCHomeCollectionViewLayout {
             switch sectionIndex {
             case GCHomeSection.featured.rawValue:
                 return largeCardCarousel()
+            case GCHomeSection.allRecipes.rawValue:
+                return smallCardCarousel()
             case GCHomeSection.categories.rawValue:
                 return recipeCategoryList()
             default:
@@ -23,7 +25,7 @@ struct GCHomeCollectionViewLayout {
 }
 
 private extension GCHomeCollectionViewLayout {
-    static func largeCardCarousel() -> NSCollectionLayoutSection {
+    static func largeCardCarousel() -> NSCollectionLayoutSection? {
         let largeCardSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let largeCard = NSCollectionLayoutItem(layoutSize: largeCardSize)
         
@@ -41,12 +43,35 @@ private extension GCHomeCollectionViewLayout {
         section.boundarySupplementaryItems = [header]
         
         section.interGroupSpacing = 10
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 40, trailing: 10)
         
         return section
     }
     
-    static func recipeCategoryList() -> NSCollectionLayoutSection {
+    static func smallCardCarousel() -> NSCollectionLayoutSection? {
+        let smallCardSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let smallCard = NSCollectionLayoutItem(layoutSize: smallCardSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .fractionalHeight(0.25))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [smallCard])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        
+        let footerHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(20.0))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: footerHeaderSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        
+        section.interGroupSpacing = 10
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 40, trailing: 10)
+        
+        return section
+    }
+    
+    static func recipeCategoryList() -> NSCollectionLayoutSection? {
         let categoryCellSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(60))
         let categoryCell = NSCollectionLayoutItem(layoutSize: categoryCellSize)
         
