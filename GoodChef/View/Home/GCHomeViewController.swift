@@ -14,6 +14,7 @@ class GCHomeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(GCRecipeSmallCardCell.self, forCellWithReuseIdentifier: GCRecipeSmallCardCell.identifier)
         collectionView.register(GCCategoryListCell.self, forCellWithReuseIdentifier: GCCategoryListCell.identifier)
         collectionView.register(GCRecipeLargeCardCell.self, forCellWithReuseIdentifier: GCRecipeLargeCardCell.identifier)
         collectionView.register(GCHomeHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GCHomeHeader.identifier)
@@ -29,8 +30,11 @@ class GCHomeViewController: UIViewController {
             switch itemIdentifier {
             case .featured(let item):
                 return largeCardCell(collectionView: collectionView, indexPath: indexPath, item: item)
+            case .allRecipes(let item):
+                return smallCardCell(collectionView: collectionView, indexPath: indexPath, item: item)
             case .categories(let item):
                 return categoryCell(collectionView: collectionView, indexPath: indexPath, item: item)
+            
             }
         }
         dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
@@ -97,10 +101,10 @@ private extension GCHomeViewController {
     
     func applySnapshot() {
         var snapshot = HomeSnapshot()
-        snapshot.appendSections([GCHomeSection.featured])
-        snapshot.appendItems(viewModel.featuredItems())
-        snapshot.appendSections([GCHomeSection.categories])
-        snapshot.appendItems(viewModel.categoryItems())
+        snapshot.appendSections(GCHomeSection.allCases)
+        snapshot.appendItems(viewModel.featuredItems(), toSection: .featured)
+        snapshot.appendItems(viewModel.allItems(), toSection: .allRecipes)
+        snapshot.appendItems(viewModel.categoryItems(), toSection: .categories)
         dataSource.apply(snapshot)
     }
 }
@@ -108,6 +112,14 @@ private extension GCHomeViewController {
 private extension GCHomeViewController {
     func largeCardCell(collectionView: UICollectionView, indexPath: IndexPath, item: RecipeItem) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GCRecipeLargeCardCell.identifier, for: indexPath) as? GCRecipeLargeCardCell else {
+            return UICollectionViewCell()
+        }
+        cell.setupCellContent(item: item)
+        return cell
+    }
+    
+    func smallCardCell(collectionView: UICollectionView, indexPath: IndexPath, item: RecipeItem) -> UICollectionViewCell {
+        guard let cell  =  collectionView.dequeueReusableCell(withReuseIdentifier: GCRecipeSmallCardCell.identifier, for: indexPath) as? GCRecipeSmallCardCell else {
             return UICollectionViewCell()
         }
         cell.setupCellContent(item: item)

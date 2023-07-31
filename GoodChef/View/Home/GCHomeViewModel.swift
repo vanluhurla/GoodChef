@@ -34,18 +34,22 @@ class GCHomeViewModel: NSObject {
     
     func featuredItems() -> [GCHomeItem] {
         let items = recipes.filter({$0.featured })
-        return buildItems(recipes: items)
+        return buildItems(recipes: items, featured: true)
     }
     
     func allItems() -> [GCHomeItem] {
-        return buildItems(recipes: recipes)
+        return buildItems(recipes: recipes, featured: false)
     }
     
-    func buildItems(recipes: [GCRecipe]) -> [GCHomeItem] {
+    func buildItems(recipes: [GCRecipe], featured: Bool) -> [GCHomeItem] {
         let orderedRecipes = recipes.sorted(by: { $0.date.compare($1.date) == .orderedDescending })
         let items = orderedRecipes.map { recipe in
             let item = RecipeItem(title: recipe.title, subtitle: recipe.preparationTime, imageURL: recipe.image)
-            return GCHomeItem.featured(item)
+            if featured {
+                return GCHomeItem.featured(item)
+            } else {
+                return GCHomeItem.allRecipes(item)
+            }
         }
         return items
     }
