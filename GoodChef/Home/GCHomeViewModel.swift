@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol GCHomeViewModelCoordinator: AnyObject {
+    func navigateToRecipeList(configuration: GCRecipeListViewModelConfiguration)
+}
+
 protocol GCHomeViewModelDelegate: AnyObject {
     func didRecieveRecipes()
     func didRecieveErrorWithMessage(_ message: String)
@@ -17,7 +21,12 @@ class GCHomeViewModel: NSObject {
     var networkManager = GCNetworkManager()
     var recipes = [GCRecipe]()
     
-    var delegate: GCHomeViewModelDelegate?
+    weak var delegate: GCHomeViewModelDelegate?
+    weak var coordinator: GCHomeViewModelCoordinator?
+    
+    init(coordinator: GCHomeViewModelCoordinator?) {
+        self.coordinator = coordinator
+    }
     
     func loadData() {
         networkManager.getRecipeList { [weak self] recipes, error in
