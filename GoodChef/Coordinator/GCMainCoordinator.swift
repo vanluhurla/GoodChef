@@ -9,11 +9,17 @@ import UIKit
 
 class GCMainCoordinator {
     
-    let navigationController: UINavigationController
+    let navigationController = UINavigationController()
     let viewFactory = GCViewControllerFactory()
     
-    init() {
-        let homeViewController = viewFactory.homeViewController()
-        navigationController = UINavigationController(rootViewController: homeViewController)
+    func start() {
+        let homeViewController = viewFactory.homeViewController(coordinator: self)
+        navigationController.pushViewController(homeViewController, animated: false)
+    }
+}
+
+extension GCMainCoordinator: GCHomeViewModelCoordinator {
+    func navigateToRecipeList(configuration: GCRecipeListViewModelConfiguration) {
+       
     }
 }

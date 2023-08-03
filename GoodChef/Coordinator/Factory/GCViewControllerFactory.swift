@@ -9,8 +9,8 @@ import UIKit
 
 class GCViewControllerFactory {
     
-    func homeViewController() -> UIViewController {
-        let viewModel = GCHomeViewModel()
+    func homeViewController(coordinator: GCHomeViewModelCoordinator?) -> UIViewController {
+        let viewModel = GCHomeViewModel(coordinator: coordinator)
         let viewController = GCHomeViewController(viewModel: viewModel)
         return viewController
     }

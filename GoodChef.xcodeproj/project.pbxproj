@@ -13,6 +13,7 @@
 		03BF164F2A5CB5AB0004911F /* GCRecipeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF164E2A5CB5AB0004911F /* GCRecipeCategory.swift */; };
 		03BF16512A5CB6640004911F /* GCStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF16502A5CB6640004911F /* GCStrings.swift */; };
 		03BF16552A69D3060004911F /* GCRecipeSmallCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF16542A69D3060004911F /* GCRecipeSmallCardCell.swift */; };
+		03BF16642A7C482A0004911F /* GCRecipeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF16632A7C482A0004911F /* GCRecipeListViewModel.swift */; };
 		03CAA3152A24A41100F691F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3142A24A41100F691F1 /* AppDelegate.swift */; };
 		03CAA3172A24A41100F691F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3162A24A41100F691F1 /* SceneDelegate.swift */; };
 		03CAA31E2A24A41200F691F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CAA31D2A24A41200F691F1 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		03BF164E2A5CB5AB0004911F /* GCRecipeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeCategory.swift; sourceTree = "<group>"; };
 		03BF16502A5CB6640004911F /* GCStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCStrings.swift; sourceTree = "<group>"; };
 		03BF16542A69D3060004911F /* GCRecipeSmallCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeSmallCardCell.swift; sourceTree = "<group>"; };
+		03BF16632A7C482A0004911F /* GCRecipeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeListViewModel.swift; sourceTree = "<group>"; };
 		03CAA3112A24A41100F691F1 /* GoodChef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodChef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CAA3142A24A41100F691F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03CAA3162A24A41100F691F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 			path = Design;
 			sourceTree = "<group>";
 		};
+		03BF16622A7C47DE0004911F /* RecipeList */ = {
+			isa = PBXGroup;
+			children = (
+				03BF16632A7C482A0004911F /* GCRecipeListViewModel.swift */,
+			);
+			path = RecipeList;
+			sourceTree = "<group>";
+		};
 		03CAA3082A24A41000F691F1 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +157,8 @@
 				03CAA3442A24AA6500F691F1 /* Model */,
 				03CAA3452A24AA6B00F691F1 /* Coordinator */,
 				03CAA3462A24AA7500F691F1 /* View */,
+				03CAA3472A24AC0E00F691F1 /* Home */,
+				03BF16622A7C47DE0004911F /* RecipeList */,
 				03CAA3142A24A41100F691F1 /* AppDelegate.swift */,
 				03CAA3162A24A41100F691F1 /* SceneDelegate.swift */,
 				03CAA31D2A24A41200F691F1 /* Assets.xcassets */,
@@ -194,7 +206,6 @@
 		03CAA3462A24AA7500F691F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				03CAA3472A24AC0E00F691F1 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -386,6 +397,7 @@
 				03226B1A2A3F3F9C00D61A77 /* GCCategoryListCell.swift in Sources */,
 				03CAA3492A24AC2C00F691F1 /* GCHomeViewController.swift in Sources */,
 				03CAA3172A24A41100F691F1 /* SceneDelegate.swift in Sources */,
+				03BF16642A7C482A0004911F /* GCRecipeListViewModel.swift in Sources */,
 				03BF16512A5CB6640004911F /* GCStrings.swift in Sources */,
 				03F1883E2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift in Sources */,
 				03CAA3592A24D46800F691F1 /* GCNetworkUrl.swift in Sources */,
