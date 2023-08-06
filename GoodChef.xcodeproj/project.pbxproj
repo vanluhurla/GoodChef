@@ -14,6 +14,8 @@
 		03BF16512A5CB6640004911F /* GCStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF16502A5CB6640004911F /* GCStrings.swift */; };
 		03BF16552A69D3060004911F /* GCRecipeSmallCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF16542A69D3060004911F /* GCRecipeSmallCardCell.swift */; };
 		03BF16642A7C482A0004911F /* GCRecipeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF16632A7C482A0004911F /* GCRecipeListViewModel.swift */; };
+		03BF16662A7E6C7C0004911F /* GCRecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF16652A7E6C7C0004911F /* GCRecipeListViewController.swift */; };
+		03BF16692A7E7B000004911F /* GCRecipeListCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF16682A7E7B000004911F /* GCRecipeListCardCell.swift */; };
 		03CAA3152A24A41100F691F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3142A24A41100F691F1 /* AppDelegate.swift */; };
 		03CAA3172A24A41100F691F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3162A24A41100F691F1 /* SceneDelegate.swift */; };
 		03CAA31E2A24A41200F691F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CAA31D2A24A41200F691F1 /* Assets.xcassets */; };
@@ -61,6 +63,8 @@
 		03BF16502A5CB6640004911F /* GCStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCStrings.swift; sourceTree = "<group>"; };
 		03BF16542A69D3060004911F /* GCRecipeSmallCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeSmallCardCell.swift; sourceTree = "<group>"; };
 		03BF16632A7C482A0004911F /* GCRecipeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeListViewModel.swift; sourceTree = "<group>"; };
+		03BF16652A7E6C7C0004911F /* GCRecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeListViewController.swift; sourceTree = "<group>"; };
+		03BF16682A7E7B000004911F /* GCRecipeListCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeListCardCell.swift; sourceTree = "<group>"; };
 		03CAA3112A24A41100F691F1 /* GoodChef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodChef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CAA3142A24A41100F691F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03CAA3162A24A41100F691F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,9 +127,19 @@
 		03BF16622A7C47DE0004911F /* RecipeList */ = {
 			isa = PBXGroup;
 			children = (
+				03BF16672A7E7AE40004911F /* Cell */,
 				03BF16632A7C482A0004911F /* GCRecipeListViewModel.swift */,
+				03BF16652A7E6C7C0004911F /* GCRecipeListViewController.swift */,
 			);
 			path = RecipeList;
+			sourceTree = "<group>";
+		};
+		03BF16672A7E7AE40004911F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				03BF16682A7E7B000004911F /* GCRecipeListCardCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		03CAA3082A24A41000F691F1 = {
@@ -404,7 +418,9 @@
 				03F188362A47254C007D37C0 /* GCHomeDataSource.swift in Sources */,
 				03BF16552A69D3060004911F /* GCRecipeSmallCardCell.swift in Sources */,
 				03CAA3552A24C98500F691F1 /* GCRecipe.swift in Sources */,
+				03BF16692A7E7B000004911F /* GCRecipeListCardCell.swift in Sources */,
 				03F188402A4B77B4007D37C0 /* GCUIImageView+Download.swift in Sources */,
+				03BF16662A7E6C7C0004911F /* GCRecipeListViewController.swift in Sources */,
 				03226B162A3F3F7100D61A77 /* GCRecipeLargeCardCell.swift in Sources */,
 				03BF164F2A5CB5AB0004911F /* GCRecipeCategory.swift in Sources */,
 				03CAA3532A24C88100F691F1 /* GCNetworkManager.swift in Sources */,
