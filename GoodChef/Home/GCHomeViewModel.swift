@@ -69,4 +69,32 @@ class GCHomeViewModel: NSObject {
             return GCHomeItem.categories(item)
         }
     }
+    
+    func didSelectItem(indexPath: IndexPath) {
+        guard let selectedSection = GCHomeSection(rawValue: indexPath.section) else {
+            return
+        }
+        switch selectedSection {
+        case .featured:
+            print("Featured recipe selected")
+        case .allRecipes:
+            print("All recipes selected")
+        case .categories:
+            handleSelectedCategoy(indexPath: indexPath)
+        }
+    }
+}
+
+private extension GCHomeViewModel {
+    func handleSelectedCategoy(indexPath: IndexPath) {
+        guard let selectedCategory = GCRecipeCategory(rawValue: indexPath.item) else {
+            return
+        }
+        print(selectedCategory.title)
+        // Catergory selection
+        // Filter recipes based on category selected
+        let configuration = GCRecipeListViewModelConfiguration(title: selectedCategory.title,
+                                                             recipes: []) // filtered recipes
+        coordinator?.navigateToRecipeList(configuration: configuration)
+    }
 }
