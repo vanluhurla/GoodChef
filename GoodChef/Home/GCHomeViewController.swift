@@ -63,8 +63,8 @@ class GCHomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .backgroundSecondary
         viewModel.loadData()
+        setupCollectionView()
         setupUi()
-     
     }
 }
 
@@ -81,6 +81,10 @@ extension GCHomeViewController: GCHomeViewModelDelegate {
 }
 
 private extension GCHomeViewController {
+    func setupCollectionView() {
+        collectionView.delegate = self
+    }
+    
     func setupUi() {
         setupViews()
         setupLayout()
@@ -106,6 +110,11 @@ private extension GCHomeViewController {
         snapshot.appendItems(viewModel.allItems(), toSection: .allRecipes)
         snapshot.appendItems(viewModel.categoryItems(), toSection: .categories)
         dataSource.apply(snapshot)
+    }
+}
+extension GCHomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didSelectItem(indexPath: indexPath)
     }
 }
 

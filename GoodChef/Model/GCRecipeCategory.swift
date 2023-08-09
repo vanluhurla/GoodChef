@@ -7,14 +7,29 @@
 
 import UIKit
 
-enum GCRecipeCategory: String, CaseIterable {
+enum GCRecipeCategory: Int, CaseIterable {
     case breakfast, lunch, dinner, dessert, snacks, drinks, bakery
     
     var title: String {
-        self.rawValue.capitalizingFirstLetter()
+        switch self {
+        case .breakfast:
+            return "Breakfast"
+        case .lunch:
+            return "Lunch"
+        case .dinner:
+            return "Dinner"
+        case .dessert:
+            return "Dessert"
+        case .snacks:
+            return "Snacks"
+        case .drinks:
+            return "Drinks"
+        case .bakery:
+            return "Bakery"
+        }
     }
     
     var image: UIImage? {
-        UIImage(named: "category_icon_\(self.rawValue)")
+        UIImage(named: "category_icon_\(self.title.lowercased())")
     }
 }

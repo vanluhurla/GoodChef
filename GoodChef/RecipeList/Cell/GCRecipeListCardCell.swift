@@ -62,11 +62,18 @@ class GCRecipeListCardCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setupCellContent(item: RecipeListItem) {
+        setupUI()
+        setupValues(item: item)
+    }
 }
 
 private extension GCRecipeListCardCell {
-    func setupValues() {
-        
+    func setupValues(item: RecipeListItem) {
+        recipeTitleLabel.text = item.title
+        recipeImageView.image = UIImage(named: "placeholder")
+        recipeImageView.downloadImage(from: item.imageURL)
     }
     
     func setupUI() {
