@@ -9,6 +9,7 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    let mainCoordinator = GCMainCoordinator()
     var window: UIWindow?
 
 
@@ -18,10 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-        let coordinator = GCMainCoordinator()
-        self.window?.rootViewController = coordinator.navigationController
+        self.window?.rootViewController = mainCoordinator.navigationController
         self.window?.makeKeyAndVisible()
-        coordinator.start()
+        mainCoordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

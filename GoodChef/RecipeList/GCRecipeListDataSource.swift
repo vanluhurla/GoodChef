@@ -8,9 +8,10 @@
 import UIKit
 
 typealias GCRecipeListDataSource = UICollectionViewDiffableDataSource<GCListSection, GCListItem>
+typealias GCRecipeListSnapshot = NSDiffableDataSourceSnapshot<GCListSection, GCListItem>
 
 
-enum GCListSection: Int {
+enum GCListSection: Int, CaseIterable {
     case allRecipes
 }
 
@@ -21,7 +22,7 @@ enum GCListItem: Hashable {
 struct RecipeListItem: Hashable {
     let id = UUID()
     let title: String
-    let subtilt: String
+    let subtitle: String
     let imageURL: String
 }
 
