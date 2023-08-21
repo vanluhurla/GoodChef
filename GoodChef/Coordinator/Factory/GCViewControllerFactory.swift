@@ -14,4 +14,10 @@ class GCViewControllerFactory {
         let viewController = GCHomeViewController(viewModel: viewModel)
         return viewController
     }
+    
+    func recipeListViewController(configuration: GCRecipeListViewModelConfiguration) -> UIViewController {
+        let viewModel = GCRecipeListViewModel(configuration: configuration)
+        let viewController = GCRecipeListViewController(viewModel: viewModel)
+        return viewController
+    }
 }
