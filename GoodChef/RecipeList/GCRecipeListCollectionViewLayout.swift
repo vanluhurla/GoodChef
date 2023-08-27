@@ -17,17 +17,30 @@ struct GCRecipeListCollectionViewLayout {
 
 private extension GCRecipeListCollectionViewLayout {
     static func recipeList() -> NSCollectionLayoutSection? {
-        let recipeListCardCell = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let recipeListCardCell = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+                                                       heightDimension: .fractionalHeight(1.0))
         let recipeListCard = NSCollectionLayoutItem(layoutSize: recipeListCardCell)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .fractionalHeight(0.25))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [recipeListCard])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                              heightDimension: .fractionalHeight(0.27))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                     repeatingSubitem: recipeListCard,
+                                                     count: 2)
+        group.interItemSpacing = .fixed(10)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
         
         let section = NSCollectionLayoutSection(group: group)
-        let footerHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(20.0))
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0)
         
-        section.interGroupSpacing = 10
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 40, trailing: 10)
+        let footerHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                    heightDimension: .estimated(20.0))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: footerHeaderSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
+        header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.boundarySupplementaryItems = [header]
+        
         return section
     }
 }
