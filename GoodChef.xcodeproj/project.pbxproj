@@ -17,6 +17,7 @@
 		03BF16662A7E6C7C0004911F /* GCRecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF16652A7E6C7C0004911F /* GCRecipeListViewController.swift */; };
 		03BF16692A7E7B000004911F /* GCRecipeListCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF16682A7E7B000004911F /* GCRecipeListCardCell.swift */; };
 		03BF166B2A8181A70004911F /* GCRecipeListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF166A2A8181A70004911F /* GCRecipeListDataSource.swift */; };
+		03C73D752A969F0B00872A91 /* GCRecipeListCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C73D742A969F0B00872A91 /* GCRecipeListCollectionViewLayout.swift */; };
 		03CAA3152A24A41100F691F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3142A24A41100F691F1 /* AppDelegate.swift */; };
 		03CAA3172A24A41100F691F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3162A24A41100F691F1 /* SceneDelegate.swift */; };
 		03CAA31E2A24A41200F691F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CAA31D2A24A41200F691F1 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		03BF16652A7E6C7C0004911F /* GCRecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeListViewController.swift; sourceTree = "<group>"; };
 		03BF16682A7E7B000004911F /* GCRecipeListCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeListCardCell.swift; sourceTree = "<group>"; };
 		03BF166A2A8181A70004911F /* GCRecipeListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeListDataSource.swift; sourceTree = "<group>"; };
+		03C73D742A969F0B00872A91 /* GCRecipeListCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeListCollectionViewLayout.swift; sourceTree = "<group>"; };
 		03CAA3112A24A41100F691F1 /* GoodChef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodChef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CAA3142A24A41100F691F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03CAA3162A24A41100F691F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				03BF16672A7E7AE40004911F /* Cell */,
 				03BF166A2A8181A70004911F /* GCRecipeListDataSource.swift */,
+				03C73D742A969F0B00872A91 /* GCRecipeListCollectionViewLayout.swift */,
 				03BF16632A7C482A0004911F /* GCRecipeListViewModel.swift */,
 				03BF16652A7E6C7C0004911F /* GCRecipeListViewController.swift */,
 			);
@@ -410,6 +413,7 @@
 			files = (
 				03CAA3152A24A41100F691F1 /* AppDelegate.swift in Sources */,
 				03CAA35C2A24E12B00F691F1 /* GCDateFormatter.swift in Sources */,
+				03C73D752A969F0B00872A91 /* GCRecipeListCollectionViewLayout.swift in Sources */,
 				03CAA3572A24D1CE00F691F1 /* GCNetworkError.swift in Sources */,
 				03226B1A2A3F3F9C00D61A77 /* GCCategoryListCell.swift in Sources */,
 				03CAA3492A24AC2C00F691F1 /* GCHomeViewController.swift in Sources */,
