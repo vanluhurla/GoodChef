@@ -22,6 +22,10 @@ class GCRecipeListViewModel: NSObject {
     
     private let configuration: GCRecipeListViewModelConfiguration
     
+    var headerTitle: String {
+        configuration.title
+    }
+    
     init(configuration: GCRecipeListViewModelConfiguration) {
         self.configuration = configuration
     }

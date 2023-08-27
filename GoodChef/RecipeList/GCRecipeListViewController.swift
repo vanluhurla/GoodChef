@@ -15,7 +15,9 @@ class GCRecipeListViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         collectionView.register(GCRecipeListCardCell.self, forCellWithReuseIdentifier: GCRecipeListCardCell.identifier)
+        collectionView.register(GCRecipeListHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GCRecipeListHeader.identifier)
         return collectionView
     }()
 
@@ -29,6 +31,12 @@ class GCRecipeListViewController: UIViewController {
             case .allRecipes(let item):
                 return recipeListCell(collectionView: collectionView, indexPath: indexPath, item: item)
             }
+        }
+        dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+            guard let self else {
+                return nil
+            }
+            return header(collectionView: collectionView, kind: kind, indexPath: indexPath)
         }
         return dataSource
     }()
@@ -98,5 +106,13 @@ private extension GCRecipeListViewController {
         }
         cell.setupCellContent(item: item)
         return cell
+    }
+    
+    func header(collectionView: UICollectionView, kind:String, indexPath: IndexPath) -> UICollectionReusableView {
+        guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: GCRecipeListHeader.identifier, for: indexPath) as? GCRecipeListHeader else {
+            return UICollectionReusableView()
+        }
+        sectionHeader.setupHeader(title: viewModel.headerTitle)
+        return sectionHeader
     }
 }
