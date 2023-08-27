@@ -11,7 +11,8 @@ class GCRecipeListViewController: UIViewController {
     
 // MARK: COLLECTION VIEW
     private var collectionView: UICollectionView = {
-        let collectionView = UICollectionView()
+        let layout = GCRecipeListCollectionViewLayout.layout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(GCRecipeListCardCell.self, forCellWithReuseIdentifier: GCRecipeListCardCell.identifier)
@@ -24,10 +25,9 @@ class GCRecipeListViewController: UIViewController {
             guard let self = self else {
                 return UICollectionViewCell()
             }
-            if case .allRecipes(let item) = itemIdentifier {
+            switch itemIdentifier {
+            case .allRecipes(let item):
                 return recipeListCell(collectionView: collectionView, indexPath: indexPath, item: item)
-            } else {
-                return UICollectionViewCell()
             }
         }
         return dataSource
@@ -49,7 +49,7 @@ class GCRecipeListViewController: UIViewController {
 // MARK: VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .clear
+        view.backgroundColor = .backgroundSecondary
         viewModel.loadData()
         setupUI()
     }
