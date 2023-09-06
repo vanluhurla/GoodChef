@@ -9,6 +9,7 @@ import Foundation
 
 protocol GCHomeViewModelCoordinator: AnyObject {
     func navigateToRecipeList(configuration: GCRecipeListViewModelConfiguration)
+    func navigateToRecipe(configuration: GCRecipeDetailsViewModelConfiguration)
 }
 
 protocol GCHomeViewModelDelegate: AnyObject {
@@ -34,9 +35,9 @@ class GCHomeViewModel: NSObject {
         }
         switch selectedSection {
         case .featured:
-            print("Featured recipe selected")
+            handleSelectedFeaturedRecipe(indexPath: indexPath)
         case .allRecipes:
-            print("All recipes selected")
+            handleSelectedRecipe(indexPath: indexPath)
         case .categories:
             handleSelectedCategoy(indexPath: indexPath)
         }
@@ -59,10 +60,18 @@ extension GCHomeViewModel {
     }
 }
 
-// MARK: Recipes
+// MARK: Recipe filters
 private extension GCHomeViewModel {
     func filterRecipes(category: GCRecipeCategory) -> [GCRecipe] {
         recipes.filter({ $0.category == category.title})
+    }
+    
+    func filterFeaturedRecipes() -> [GCRecipe] {
+        recipes.filter({ $0.featured})
+    }
+    
+    func filterAllRecipes() -> [GCRecipe] {
+        recipes
     }
 }
     
@@ -108,5 +117,20 @@ private extension GCHomeViewModel {
         let configuration = GCRecipeListViewModelConfiguration(title: selectedCategory.title,
                                                              recipes: filteredRecipes)
         coordinator?.navigateToRecipeList(configuration: configuration)
+    }
+    
+    func handleSelectedFeaturedRecipe(indexPath: IndexPath) {
+        let filteredRecipes = filterFeaturedRecipes()
+        let selectedRecipe = filteredRecipes[indexPath.row]
+        let configuration = GCRecipeDetailsViewModelConfiguration(recipe: selectedRecipe)
+        coordinator?.navigateToRecipe(configuration: configuration)
+    }
+    
+    func handleSelectedRecipe(indexPath: IndexPath) {
+        let filteredRecipes = filterAllRecipes()
+        let selectedRecipe = filteredRecipes[indexPath.row]
+        let configuration = GCRecipeDetailsViewModelConfiguration(recipe: selectedRecipe)
+        coordinator?.navigateToRecipe(configuration: configuration)
+        
     }
 }

@@ -20,4 +20,10 @@ class GCViewControllerFactory {
         let viewController = GCRecipeListViewController(viewModel: viewModel)
         return viewController
     }
+    
+    func recipeDetailsViewController(configuration: GCRecipeDetailsViewModelConfiguration) -> UIViewController {
+        let viewModel = GCRecipeDetailsViewModel(configuration: configuration)
+        let viewController = GCRecipeDetailsViewController(viewModel: viewModel)
+        return viewController
+    }
 }
