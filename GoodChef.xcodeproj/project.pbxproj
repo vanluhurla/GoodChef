@@ -39,6 +39,7 @@
 		03CAA3572A24D1CE00F691F1 /* GCNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3562A24D1CD00F691F1 /* GCNetworkError.swift */; };
 		03CAA3592A24D46800F691F1 /* GCNetworkUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA3582A24D46800F691F1 /* GCNetworkUrl.swift */; };
 		03CAA35C2A24E12B00F691F1 /* GCDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CAA35B2A24E12B00F691F1 /* GCDateFormatter.swift */; };
+		03E760902AC0A57900DF298B /* GCRecipeDetailsImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7608F2AC0A57900DF298B /* GCRecipeDetailsImageCell.swift */; };
 		03F188362A47254C007D37C0 /* GCHomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F188352A47254C007D37C0 /* GCHomeDataSource.swift */; };
 		03F1883E2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1883D2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift */; };
 		03F188402A4B77B4007D37C0 /* GCUIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1883F2A4B77B4007D37C0 /* GCUIImageView+Download.swift */; };
@@ -99,6 +100,7 @@
 		03CAA3562A24D1CD00F691F1 /* GCNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCNetworkError.swift; sourceTree = "<group>"; };
 		03CAA3582A24D46800F691F1 /* GCNetworkUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCNetworkUrl.swift; sourceTree = "<group>"; };
 		03CAA35B2A24E12B00F691F1 /* GCDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDateFormatter.swift; sourceTree = "<group>"; };
+		03E7608F2AC0A57900DF298B /* GCRecipeDetailsImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCRecipeDetailsImageCell.swift; sourceTree = "<group>"; };
 		03F188352A47254C007D37C0 /* GCHomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCHomeDataSource.swift; sourceTree = "<group>"; };
 		03F1883D2A4B6E15007D37C0 /* GCHomeCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCHomeCollectionViewLayout.swift; sourceTree = "<group>"; };
 		03F1883F2A4B77B4007D37C0 /* GCUIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GCUIImageView+Download.swift"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		03C02EBB2AA91BB100DA26BD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				03E7608F2AC0A57900DF298B /* GCRecipeDetailsImageCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				03CAA35C2A24E12B00F691F1 /* GCDateFormatter.swift in Sources */,
 				03C73D752A969F0B00872A91 /* GCRecipeListCollectionViewLayout.swift in Sources */,
 				03CAA3572A24D1CE00F691F1 /* GCNetworkError.swift in Sources */,
+				03E760902AC0A57900DF298B /* GCRecipeDetailsImageCell.swift in Sources */,
 				03C02ECB2AB3986A00DA26BD /* GCRecipeDetailsCollectionViewLayout.swift in Sources */,
 				03226B1A2A3F3F9C00D61A77 /* GCCategoryListCell.swift in Sources */,
 				03C02EB82AA91B8700DA26BD /* GCRecipeDetailsViewController.swift in Sources */,

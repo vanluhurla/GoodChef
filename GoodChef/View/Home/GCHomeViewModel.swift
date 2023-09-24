@@ -21,6 +21,9 @@ class GCHomeViewModel: NSObject {
     
     var networkManager = GCNetworkManager()
     var recipes = [GCRecipe]()
+    var orderedRecipes: [GCRecipe] {
+        recipes.sorted(by: { $0.date.compare($1.date) == .orderedDescending })
+    }
     
     weak var delegate: GCHomeViewModelDelegate?
     weak var coordinator: GCHomeViewModelCoordinator?
@@ -63,26 +66,26 @@ extension GCHomeViewModel {
 // MARK: Recipe filters
 private extension GCHomeViewModel {
     func filterRecipes(category: GCRecipeCategory) -> [GCRecipe] {
-        recipes.filter({ $0.category == category.title})
+        orderedRecipes.filter({ $0.category == category.title})
     }
     
     func filterFeaturedRecipes() -> [GCRecipe] {
-        recipes.filter({ $0.featured})
+        orderedRecipes.filter({ $0.featured})
     }
     
     func filterAllRecipes() -> [GCRecipe] {
-        recipes
+        orderedRecipes
     }
 }
     
 // MARK: Items(Hashable)
     extension GCHomeViewModel {
         func allItems() -> [GCHomeItem] {
-            return buildItems(recipes: recipes, featured: false)
+            return buildItems(recipes: orderedRecipes, featured: false)
         }
         
         func featuredItems() -> [GCHomeItem] {
-            let items = recipes.filter({$0.featured })
+            let items = orderedRecipes.filter({$0.featured })
             return buildItems(recipes: items, featured: true)
         }
         
