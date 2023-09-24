@@ -7,10 +7,10 @@
 
 import UIKit
 
-typealias GCRecipeDetailsDataSource = UICollectionViewDiffableDataSource<GCListSection, GCListItem>
-typealias GCRecipeDetailsSnapshot = NSDiffableDataSourceSnapshot<GCListSection, GCListItem>
+typealias GCRecipeDetailsDataSource = UICollectionViewDiffableDataSource<RecipeDetailsSection, RecipeDetailsItem>
+typealias GCRecipeDetailsSnapshot = NSDiffableDataSourceSnapshot<RecipeDetailsSection, RecipeDetailsItem>
 
-enum RecipeDetailsSection: Int {
+enum RecipeDetailsSection: Int, CaseIterable {
     case image
     case ingredient
     case instruction
@@ -23,7 +23,7 @@ enum RecipeDetailsItem: Hashable {
 }
 
 struct RecipeImageItem: Hashable {
-    let image: String
+    let imageURL: String
 }
 
 struct RecipeIngredientItem: Hashable {
