@@ -36,5 +36,25 @@ extension GCRecipeDetailsViewModel {
         let item = RecipeDetailsItem.image(imageItem)
         return [item]
     }
+
+	func buildIngredientItems() -> [RecipeDetailsItem] {
+		let ingredients = configuration.recipe.ingredients
+		let items = ingredients.map { ingredient in
+			let ingredientItem = RecipeIngredientItem(ingredient: ingredient)
+			let item = RecipeDetailsItem.ingredient(ingredientItem)
+			return item
+		}
+		return items
+	}
+
+	func buildInstructionItems() -> [RecipeDetailsItem] {
+		let instructions = configuration.recipe.instructions
+		let items = instructions.map { instruction in
+			let instructionItem = RecipeInstructionItem(instruction: instruction)
+			let item = RecipeDetailsItem.instruction(instructionItem)
+			return item
+		}
+		return items
+	}
 }
 

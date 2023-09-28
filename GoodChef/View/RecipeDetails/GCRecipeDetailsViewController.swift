@@ -17,6 +17,7 @@ class GCRecipeDetailsViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         collectionView.register(GCRecipeDetailsImageCell.self, forCellWithReuseIdentifier: GCRecipeDetailsImageCell.identifier)
+		collectionView.register(GCRecipeDetailsTextCell.self, forCellWithReuseIdentifier: GCRecipeDetailsTextCell.identifier)
         return collectionView
     }()
 
@@ -30,9 +31,9 @@ class GCRecipeDetailsViewController: UIViewController {
             case .image(let item):
                 return recipeDetailsImage(collectionView: collectionView, indexPath: indexPath, item: item)
             case .ingredient(let item):
-                return nil
+				return recipeDetailsIngredient(collectionView: collectionView, indexPath: indexPath, text: item.ingredient)
             case .instruction(let item):
-                return nil
+				return recipeDetailsInstruction(collectionView: collectionView, indexPath: indexPath, text: item.instruction)
             }
         }
         return dataSource
@@ -90,6 +91,8 @@ private extension GCRecipeDetailsViewController {
         var snapshot = GCRecipeDetailsSnapshot()
         snapshot.appendSections(RecipeDetailsSection.allCases)
         snapshot.appendItems(viewModel.buildImageItems(), toSection: RecipeDetailsSection.image)
+		snapshot.appendItems(viewModel.buildIngredientItems(), toSection: RecipeDetailsSection.ingredient)
+		snapshot.appendItems(viewModel.buildInstructionItems(), toSection: RecipeDetailsSection.ingredient)
         dataSource.apply(snapshot)
     }
 }
@@ -104,10 +107,19 @@ private extension GCRecipeDetailsViewController {
         return cell
     }
     
-//    func recipeDetailsIngredient(collectionView: UICollectionView, indexPath: IndexPath, text: String) -> UICollectionViewCell {
-//    }
-//    
-//    func recipeDetailsInstruction(collectionView: UICollectionView, indexPath: IndexPath, text: String) -> UICollectionViewCell {
-//        
-//    }
+    func recipeDetailsIngredient(collectionView: UICollectionView, indexPath: IndexPath, text: String) -> UICollectionViewCell {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GCRecipeDetailsTextCell.identifier, for: indexPath) as? GCRecipeDetailsTextCell else {
+			return UICollectionViewCell()
+		}
+		cell.setupCellContent(text: text)
+		return cell
+    }
+    
+    func recipeDetailsInstruction(collectionView: UICollectionView, indexPath: IndexPath, text: String) -> UICollectionViewCell {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GCRecipeDetailsTextCell.identifier, for: indexPath) as? GCRecipeDetailsTextCell else {
+			return UICollectionViewCell()
+		}
+		cell.setupCellContent(text: text)
+		return cell
+    }
 }
