@@ -14,6 +14,17 @@ enum RecipeDetailsSection: Int, CaseIterable {
     case image
     case ingredient
     case instruction
+
+	var sectionTitle: String {
+		switch self {
+		case .ingredient:
+			return "Ingredients"
+		case .instruction:
+			return "Instructions"
+		case .image:
+			return ""
+		}
+	}
 }
 
 enum RecipeDetailsItem: Hashable {

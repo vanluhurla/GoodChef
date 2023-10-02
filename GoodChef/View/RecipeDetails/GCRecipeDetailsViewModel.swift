@@ -23,7 +23,11 @@ class GCRecipeDetailsViewModel: NSObject {
     init(configuration: GCRecipeDetailsViewModelConfiguration) {
         self.configuration = configuration
     }
-    
+
+	var headerTitle: String {
+		configuration.recipe.title
+	}
+
     func loadData() {
         delegate?.didRecieveRecipes()
     }

@@ -18,6 +18,7 @@ class GCRecipeDetailsViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         collectionView.register(GCRecipeDetailsImageCell.self, forCellWithReuseIdentifier: GCRecipeDetailsImageCell.identifier)
 		collectionView.register(GCRecipeDetailsTextCell.self, forCellWithReuseIdentifier: GCRecipeDetailsTextCell.identifier)
+		collectionView.register(GCRecipeDetailsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GCRecipeDetailsHeader.identifier)
         return collectionView
     }()
 
@@ -35,7 +36,13 @@ class GCRecipeDetailsViewController: UIViewController {
             case .instruction(let item):
 				return recipeDetailsInstruction(collectionView: collectionView, indexPath: indexPath, text: item.instruction)
             }
-        }
+		}
+			dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+				guard let self else {
+					return nil
+				}
+				return header(collectionView: collectionView, kind: kind, indexPath: indexPath)
+	}
         return dataSource
     }()
     
@@ -70,6 +77,7 @@ extension GCRecipeDetailsViewController: GCRecipeDetailsViewModelDelegate {
 //MARK: COLLECTION VIEW UI
 private extension GCRecipeDetailsViewController {
     func setupUI() {
+		navigationItem.title = viewModel.headerTitle
         setupViews()
         setupLayout()
     }
@@ -92,7 +100,7 @@ private extension GCRecipeDetailsViewController {
         snapshot.appendSections(RecipeDetailsSection.allCases)
         snapshot.appendItems(viewModel.buildImageItems(), toSection: RecipeDetailsSection.image)
 		snapshot.appendItems(viewModel.buildIngredientItems(), toSection: RecipeDetailsSection.ingredient)
-		snapshot.appendItems(viewModel.buildInstructionItems(), toSection: RecipeDetailsSection.ingredient)
+		snapshot.appendItems(viewModel.buildInstructionItems(), toSection: RecipeDetailsSection.instruction)
         dataSource.apply(snapshot)
     }
 }
@@ -122,4 +130,13 @@ private extension GCRecipeDetailsViewController {
 		cell.setupCellContent(text: text)
 		return cell
     }
+
+	func header(collectionView: UICollectionView, kind: String, indexPath: IndexPath) -> UICollectionReusableView? {
+		guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: GCRecipeDetailsHeader.identifier, for: indexPath) as? GCRecipeDetailsHeader,
+			  let section = RecipeDetailsSection(rawValue: indexPath.section) else {
+			return nil
+		}
+		sectionHeader.setupHeader(text: section.sectionTitle)
+		return sectionHeader
+	}
 }
