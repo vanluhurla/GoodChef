@@ -72,7 +72,12 @@ class GCRecipeLargeCardCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		cardImageView.image = nil
+	}
+
     func setupCellContent(item: RecipeItem) {
         setupUi()
         setupValues(item: item)

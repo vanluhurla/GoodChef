@@ -59,6 +59,7 @@ class GCRecipeListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .backgroundSecondary
         viewModel.loadData()
+		setupCollectionView()
         setupUI()
     }
 }
@@ -71,6 +72,9 @@ extension GCRecipeListViewController: GCRecipeListViewModelDelegate {
 
 // MARK: RECIPE LIST VIEW CONTROLLER UI
 private extension GCRecipeListViewController {
+	func setupCollectionView() {
+		collectionView.delegate = self
+	}
     func setupUI() {
         setupViews()
         setupLayout()
@@ -93,9 +97,15 @@ private extension GCRecipeListViewController {
     func applySnapshot() {
         var snapshot = GCRecipeListSnapshot()
         snapshot.appendSections(GCListSection.allCases)
-        snapshot.appendItems(viewModel.buildItems())
+        snapshot.appendItems(viewModel.allItems())
         dataSource.apply(snapshot)
     }
+}
+
+extension GCRecipeListViewController: UICollectionViewDelegate {
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		viewModel.didSelectItem(indexPath: indexPath)
+	}
 }
 
 // MARK: CELL

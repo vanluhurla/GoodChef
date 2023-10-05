@@ -15,8 +15,8 @@ class GCViewControllerFactory {
         return viewController
     }
     
-    func recipeListViewController(configuration: GCRecipeListViewModelConfiguration) -> UIViewController {
-        let viewModel = GCRecipeListViewModel(configuration: configuration)
+	func recipeListViewController(coordinator: GCRecipeListViewModelCoordinator, configuration: GCRecipeListViewModelConfiguration) -> UIViewController {
+		let viewModel = GCRecipeListViewModel(coordinator: coordinator, configuration: configuration)
         let viewController = GCRecipeListViewController(viewModel: viewModel)
         return viewController
     }
@@ -27,3 +27,5 @@ class GCViewControllerFactory {
         return viewController
     }
 }
+
+
