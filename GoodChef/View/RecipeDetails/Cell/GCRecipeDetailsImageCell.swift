@@ -43,7 +43,12 @@ class GCRecipeDetailsImageCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		recipeDetailsImageView.image = nil
+	}
+
     func setupCellContent(item: RecipeImageItem) {
         setupUI()
         setupValues(item: item)

@@ -20,7 +20,7 @@ class GCMainCoordinator {
 
 extension GCMainCoordinator: GCHomeViewModelCoordinator {
     func navigateToRecipeList(configuration: GCRecipeListViewModelConfiguration) {
-        let recipeListViewController = viewFactory.recipeListViewController(configuration: configuration)
+		let recipeListViewController = viewFactory.recipeListViewController(coordinator: self, configuration: configuration)
         navigationController.pushViewController(recipeListViewController, animated: true)
     }
     
@@ -28,4 +28,8 @@ extension GCMainCoordinator: GCHomeViewModelCoordinator {
         let recipeDetailsViewController = viewFactory.recipeDetailsViewController(configuration: configuration)
         navigationController.pushViewController(recipeDetailsViewController, animated: true)
     }
+}
+
+extension GCMainCoordinator: GCRecipeListViewModelCoordinator {
+	// Already implemented by GCHomeViewModelCoordinator.
 }

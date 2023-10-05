@@ -42,7 +42,12 @@ class GCCategoryListCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		iconImageView.image = nil
+	}
+
     func setupCellContent(item: CategoryItem) {
         setupValues(item: item)
     }
