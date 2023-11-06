@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias GetRecipeListClosure = (_ recipes: [GCRecipe]?, _ error: GCNetworkError?) -> Void
+
 class GCNetworkManager {
     func getRecipeList(completion: @escaping (_ recipes: [GCRecipe]?, _ error: GCNetworkError?) -> Void) {
         guard let url = URL(string: GCNetworkUrl.recipeList) else {
